@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главный экран</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Последние показания сенсоров</h1>
+        {% for location in locations %}
+            <div class="location-card">
+                <h2 class="location-name">{{ location.name_location }}</h2>
+                <p class="location-description">{{ location.description }}</p>
+                <h3>Последние показания:</h3>
+                <ul>
+                    {% for sensor in location.sensors.all %}
+                        <li class="sensor-info">
+                            {% if sensor.sensor_type.types == 'humidity' %}
+                                <h3 class="sensor-type">Влажность</h3>
+                            {% elif sensor.sensor_type.types == 'temperature' %}
+                                <h3 class="sensor-type">Температура</h3>
+                            {% else %}
+                                {{sensor.sensor_type.types}}
+                            {% endif %}
+                            {{ sensor.description }}:
+                            {% if sensor.measurements.all %}
+                                {{ sensor.measurements.last.value }} {{ sensor.sensor_type.unit }}
+                                ({{ sensor.measurements.last.timestamp }})
+                            {% else %}
+                                Нет показаний
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+
+
+
+

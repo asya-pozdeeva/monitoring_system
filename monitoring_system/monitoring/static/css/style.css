@@ -1,0 +1,80 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Основной контейнер */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Заголовок */
+.title {
+    font-size: 2.5em;
+    color: #f5f5f5;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Карточка локации */
+.location-card {
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.location-card:hover {
+    transform: scale(1.02);
+}
+
+.location-name {
+    font-size: 1.8em;
+    color: #81c784;
+    margin-bottom: 5px;
+}
+
+.location-description {
+    font-size: 1em;
+    color: #b0b0b0;
+    margin-bottom: 15px;
+}
+
+/* Список сенсоров */
+ul {
+    list-style-type: none;
+}
+
+.sensor-info {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sensor-info:hover {
+    background-color: #444;
+}
+
+.sensor-type {
+    font-size: 1.2em;
+    color: #4db6ac;
+    margin-bottom: 5px;
+}
+
+.sensor-info p {
+    color: #e0e0e0;
+}
